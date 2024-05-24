@@ -57,10 +57,10 @@ public class CrptApi {
             HttpClientResponseHandler<String> responseHandler = response -> {
                 int status = response.getCode();
                 if (status >= 200 && status < 300) {
-                    return "Ответ: " + new String(response.getEntity().getContent().readAllBytes());
+                    return "Response: " + new String(response.getEntity().getContent().readAllBytes());
                 } else {
                     String responseBody = new String(response.getEntity().getContent().readAllBytes());
-                    return "Ошибка: " + status + " Body: " + responseBody;
+                    return "Error: " + status + " Body: " + responseBody;
                     //throw new IOException("Ошибка: " + status + " Body: " + responseBody);
                 }
             };

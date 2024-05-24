@@ -36,7 +36,7 @@ public class App {
 
         doc.products = new CrptApi.Document.Product[]{product};
 
-        String signature = "sampleSignature";
+        String signature = "testSignature";
         api.createDocument(doc, signature);
         api.dispose();
     }
