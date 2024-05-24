@@ -54,7 +54,7 @@ public class CrptApiTest {
     }
 
     @Test
-    public void testCreateDocumentRateLimit() throws InterruptedException, IOException {
+    public void testCreateDocumentRateLimit() throws InterruptedException {
         CrptApi api = new CrptApi(TimeUnit.SECONDS, 2);
 
         Runnable task = () -> {
@@ -83,9 +83,9 @@ public class CrptApiTest {
 
         CrptApi.Document doc = createSampleDocument();
         String signature = "testSignature";
-        Exception exception = assertThrows(IOException.class, () -> {
-            api.createDocument(doc, signature);
-        });
+        Exception exception = assertThrows(IOException.class, () ->
+            api.createDocument(doc, signature)
+        );
 
         assertTrue(exception.getMessage().contains("Error: 401 Body: {\"error\":\"unauthorized\"}"));
     }
